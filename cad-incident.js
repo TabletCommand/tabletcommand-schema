@@ -1,4 +1,4 @@
-{
+module.exports = {
   "title": "Incident",
   "description": "CAD Incident",
   "type": "object",

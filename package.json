@@ -1,0 +1,18 @@
+{
+  "name": "tabletcommand-schema",
+  "version": "1.0.0",
+  "description": "Data format schema for Tablet Command endpoints.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/TabletCommand/tabletcommand-schema.git"
+  },
+  "author": "Marius Ursache <marius@tabletcommand.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ajv": "^6.9.1"
+  }
+}

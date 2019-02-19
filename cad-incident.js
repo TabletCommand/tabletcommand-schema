@@ -305,7 +305,11 @@ module.exports = {
               }
             }
           },
-        }
+        },
+        "required": [
+          "UnitDispatchNumber",
+          "UnitID"
+        ]
       }
     },
 

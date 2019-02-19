@@ -3,7 +3,6 @@ module.exports = {
   "description": "CAD Incident",
   "type": "object",
   "properties": {
-
     // Heartbeat
     "Time": {
       "type": ["string", "number"]
@@ -208,7 +207,7 @@ module.exports = {
           },
           "Comment": {
             "type": "array",
-            "maxItems": 100,
+            "maxItems": 1000,
             "items": {
               "title": "Prior Incident Comments",
               "type": "object",
@@ -312,6 +311,17 @@ module.exports = {
         "description": "Associated Report Number",
         "type": "string"
       }
+    },
+
+    // State Plane
+    "StatePlane": {
+      "type": "string"
+    },
+    "X": {
+      "type": "string"
+    },
+    "Y": {
+      "type": "string"
     },
 
     // Santa Clara
@@ -462,6 +472,17 @@ module.exports = {
     },
     "tag": {
       "type": "string"
+    },
+    "notificationType": {
+      "type": "array",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
     }
   },
   "oneOf": [

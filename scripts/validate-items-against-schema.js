@@ -1,7 +1,7 @@
 "use strict";
 
 const fs = require("fs");
-const schema = require("../cad-incident.js");
+const schema = require("../schema/cad-incident-legacy");
 const validator = require("../validation")();
 
 const input = "./sample.json";

@@ -9,6 +9,8 @@ const hdiff = require("hdiff");
 
 const input = "./sample.json";
 
+let lineNo = 0;
+
 const validator = new Ajv({
   allErrors: true,
   jsonPointers: true,
@@ -25,14 +27,17 @@ const lineReader = require("readline").createInterface({
 });
 
 lineReader.on("line", function(line) {
+  lineNo = lineNo + 1;
   const item = JSON.parse(line);
   const incident = item.postBody;
   return validate(schema, incident, (isValid) => {
     if (!isValid) {
+      console.log(`Line ${lineNo}.`);
       process.exit(1);
     }
     return reportAdditionalProperties(schema, incident, (hasChanges) => {
       if (hasChanges) {
+        console.log(`Line ${lineNo}.`);
         process.exit(2);
       }
     });

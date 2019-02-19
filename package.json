@@ -13,6 +13,8 @@
   "author": "Marius Ursache <marius@tabletcommand.com>",
   "license": "MIT",
   "dependencies": {
-    "ajv": "^6.9.1"
+    "ajv": "^6.9.1",
+    "hdiff": "^1.1.2",
+    "lodash": "^4.17.11"
   }
 }

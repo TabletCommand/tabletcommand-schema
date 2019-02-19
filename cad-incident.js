@@ -173,6 +173,64 @@ module.exports = {
       "type": ["string", "number"]
     },
 
+    "CallerNumber": {
+      "type": "string"
+    },
+
+    "PriorIncidentChanged": {
+      "type": "boolean"
+    },
+
+    "PriorIncident": {
+      "type": "array",
+      "maxItems": 100,
+      "items": {
+        "title": "Prior Incident Item",
+        "description": "Short Incident Info",
+        "type": "object",
+        "properties": {
+          "IncidentNumber": {
+            "type": "string",
+            "maxLength": 128
+          },
+          "IncidentDateTime": {
+            "type": "string",
+            "maxLength": 128
+          },
+          "Problem": {
+            "type": "string"
+          },
+          "Address": {
+            "type": "string"
+          },
+          "Suite": {
+            "type": "string"
+          },
+          "Comment": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "title": "Prior Incident Comments",
+              "type": "object",
+              "properties": {
+                "Comment": {
+                  "type": "string",
+                  "maxLength": 10000
+                },
+                "CommentSource": {
+                  "type": "string",
+                  "maxLength": 256
+                },
+                "CommentDateTime": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
     // Unit
     "Unit": {
       "type": "array",
@@ -191,19 +249,19 @@ module.exports = {
             "maxLength": 128
           },
           "TimeDispatched": {
-            "type": "string"
+            "type": ["string", "null"]
           },
           "TimeEnroute": {
-            "type": "string"
+            "type": ["string", "null"]
           },
           "TimeStaged": {
-            "type": "string"
+            "type": ["string", "null"]
           },
           "TimeArrived": {
-            "type": "string"
+            "type": ["string", "null"]
           },
           "TimeCleared": {
-            "type": "string"
+            "type": ["string", "null"]
           },
           "TimeAtHospital": {
             "type": "string"
@@ -401,12 +459,26 @@ module.exports = {
     },
     "full_address": {
       "type": "string"
+    },
+    "tag": {
+      "type": "string"
     }
-
   },
-  "required": [
-    "AgencyID",
-    "TransactionID",
-    "IncidentNumber"
-  ]
+  "oneOf": [
+    // Heartbeat
+    {
+      "required": [
+        "Time",
+        "Status"
+      ]
+    },
+    // Incident
+    {
+      "required": [
+        "AgencyID",
+        "TransactionID",
+        "IncidentNumber"
+      ]
+    }
+  ],
 };

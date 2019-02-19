@@ -199,6 +199,9 @@ module.exports = {
           "Problem": {
             "type": "string"
           },
+          "Jurisdiction": {
+            "type": "string"
+          },
           "Address": {
             "type": "string"
           },
@@ -273,7 +276,35 @@ module.exports = {
           },
           "TimeTransporting": {
             "type": "string"
-          }
+          },
+
+          "PersonnelCount": {
+            "type": "number"
+          },
+
+          "Personnel": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "title": "Personnel",
+              "description": "Personnel associated with the unit",
+              "type": "object",
+              "properties": {
+                "PersonnelID": {
+                  "type": "string",
+                  "maxLength": 256
+                },
+                "PersonnelRank": {
+                  "type": ["string", "null"],
+                  "maxLength": 256
+                },
+                "PersonnelName": {
+                  "type": "string",
+                  "maxLength": 256
+                }
+              }
+            }
+          },
         }
       }
     },

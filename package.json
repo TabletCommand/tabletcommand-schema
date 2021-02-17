@@ -1,6 +1,6 @@
 {
   "name": "tabletcommand-schema",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Data format schema for Tablet Command endpoints.",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,6 @@
   "dependencies": {
     "ajv": "^6.9.1",
     "json-diff": "^0.5.3",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.20"
   }
 }
